@@ -1,0 +1,82 @@
+[
+  {
+    "distance": 0.4, 
+    "name": "mercury", 
+    "revolutionPeriod": 0.24, 
+    "color": 5066061, 
+    "rotationPeriod": 58.6, 
+    "innerPlanet": true, 
+    "size": 0.383,
+    "longitude": 286
+  }, 
+  {
+    "distance": 0.7, 
+    "name": "venus", 
+    "revolutionPeriod": 0.61, 
+    "color": 15714960, 
+    "rotationPeriod": 243, 
+    "innerPlanet": true, 
+    "size": 0.95,
+    "longitude": 95
+  }, 
+  {
+    "distance": 1, 
+    "name": "earth", 
+    "revolutionPeriod": 1, 
+    "color": 2702172, 
+    "rotationPeriod": 1, 
+    "innerPlanet": true, 
+    "size": 1,
+    "longitude": 101
+  }, 
+  {
+    "distance": 1.5, 
+    "name": "mars", 
+    "revolutionPeriod": 1.88, 
+    "color": 11898989, 
+    "rotationPeriod": 1.03, 
+    "innerPlanet": true, 
+    "size": 0.532,
+    "longitude": 156
+  }, 
+  {
+    "distance": 5.2, 
+    "name": "jupiter", 
+    "revolutionPeriod": 11.86, 
+    "color": 12428428, 
+    "rotationPeriod": 0.41, 
+    "innerPlanet": false, 
+    "size": 10.97,
+    "longitude": 105
+  }, 
+  {
+    "distance": 9.5, 
+    "name": "saturn", 
+    "revolutionPeriod": 29.46, 
+    "color": 13415831, 
+    "rotationPeriod": 0.45, 
+    "innerPlanet": false, 
+    "size": 9.14,
+    "longitude": 226
+  }, 
+  {
+    "distance": 19.2, 
+    "name": "uranus", 
+    "revolutionPeriod": 84.01, 
+    "color": 14089212, 
+    "rotationPeriod": 0.72, 
+    "innerPlanet": false, 
+    "size": 3.98,
+    "longitude": 11
+  }, 
+  {
+    "distance": 30, 
+    "name": "neptune", 
+    "revolutionPeriod": 164.79, 
+    "color": 6460121, 
+    "rotationPeriod": 0.67, 
+    "innerPlanet": false, 
+    "size": 3.86,
+    "longitude": 335
+  }
+]

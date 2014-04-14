@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Solar System Calendar</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/img/favicons/icon_16.png">
+  <link rel="apple-touch-icon" href="/img/favicons/icon_60.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicons/icon_76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/favicons/icon_120.png">
+  <link rel="apple-touch-icon" sizes="152x125" href="/img/favicons/icon_152.png"> 
+</head>
+
+<body>
+  
+  <div id="svgContainer"></div>
+  
+  <div id="button" style="opacity: 0;">
+    <img onclick="pinchClose()" alt="pinch close" src="img/pinch_close.png" width="100" height="100">
+    <img onclick="pinchOpen()" alt="pinch open" src="img/pinch_open.png" width="100" height="100"> 
+    <div id="touchDeviceNote">
+          This App is intended for touch devices, use these buttons to use these gestures anyway.
+          <p class="attribute">Images from "GRPH3B18"</p>
+        </div>
+  </div>
+
+</body>
+
+
+<script src="js/lib/d3/d3.v3.js"></script>
+<script src="js/lib/hammer/hammer.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+
+// *** Hammer ***
+
+// Tap
+var hammerTap = Hammer(document).on("tap", function(event) {
+  tap(event);
+});
+ 
+// Drag and swipe
+var deltaX_last = 0;
+var deltaX_now = 0;
+var start_timestamp;
+var start_timestamp_last;
+var dragTimer = 0;
+
+// Change time multiplier via dragging
+var hammerDrag = Hammer(document).on("drag", function(event) {
+  
+  start_timestamp = event.gesture.startEvent.timeStamp; 
+  if(start_timestamp == start_timestamp_last){
+    deltaX_last = (start_timestamp == start_timestamp_last ? deltaX_last : 0)
+    deltaX_now = event.gesture.deltaX;
+    
+    dragTimer++     
+    if(dragTimer > 5){    // Change timeMultiplier only when 5 dragging events are already fired (prevent change when pinching)
+      timeMultiplier += ((deltaX_now - deltaX_last)/100);
+    }
+    deltaX_last = deltaX_now;
+  }
+  else dragTimer = 0
+  
+  start_timestamp_last = start_timestamp;
+});
+ 
+
+// Prevent default when touching 
+document.ontouchmove = function(event){
+  event.preventDefault();
+}
+
+
+// Detect pinch open and pinch close gestures
+document.addEventListener("gestureend", gestureEnd, false);
+
+function gestureEnd(event) {
+  if(currentView == "solar"){
+    if(event.scale > 2){
+      pinchOpen();
+    }
+    else if (event.scale < 0.5){
+      pinchClose();
+    }
+  }
+}
+
+</script>
+
